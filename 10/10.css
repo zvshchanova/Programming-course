@@ -1,0 +1,180 @@
+.body {
+    position: relative;
+    text-align: center;
+    background-color: #D2FFCE;
+}
+
+div.top {
+    position: sticky;
+    top: 0;
+    margin: auto;
+    display: block;
+    width: 900px;
+    height: 75px;
+    font-size: 20px;
+    background-color: white;
+    z-index: 1;
+
+}
+
+.top div {
+    float: left;
+    padding: 0 10px;
+}
+
+.logo img {
+    height: 43px;
+    padding-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: lightgrey;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    /* font-size: 20px; */
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: grey;
+}
+
+.bigFoodPicture {
+    position: relative;
+    text-align: center;
+}
+
+.bigFoodPicture img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.descriptin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem;
+    opacity: 0.9;
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+}
+
+.main {
+    display: block;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+div.container {
+    display: inline-block;
+    width: 600px;
+}
+
+.container div.post {
+    display: inline-block;
+    width: 250px;
+    height: 350px;
+    padding: 20px;
+    text-align: center;
+}
+
+.container img,
+.article img {
+    width: 250px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.article img {
+    float: right;
+}
+
+.article p {
+    font-size: 18px;
+
+}
+
+.container h3 {
+    color: green;
+}
+
+.container a {
+    text-decoration: none;
+    color: black;
+}
+
+.rightMenu {
+    float: right;
+    width: 230px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: lightgrey;
+}
+
+.rightMenu a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.rightMenu a:hover {
+    background-color: grey;
+}
+
+div.bottom {
+    display: block;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    background-color: grey;
+}
+
+.wrap-footer {
+    background-color: grey;
+    margin-top: 1em;
+    font-size: 20px;
+}
+
+div.footer {
+    display: block;
+    width: 900px;
+    height: 70px;
+    padding: 10px;
+    margin: 0 auto;
+    line-height: 24px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    padding: 0px 20px;
+
+}
+
+.col-left {
+    float: left;
+    padding-left: 20px;
+}
+
+.col-right {
+    float: right;
+    margin-right: 20px;
+}
