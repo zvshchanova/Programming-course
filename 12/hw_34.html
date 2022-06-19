@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <title>homework 34</title>
+  <link rel="stylesheet" href="hw_34.css">
+</head>
+
+<body>
+  <div class="wrap-registr">
+    <h2>Register</h2>
+    <form action="/action_page.php" method="post">
+      <div class="wrap-name">
+        <input type="text" placeholder="First name" class="name" name="fname">
+      </div>
+      <div class="wrap-name">
+        <input type="text" placeholder="Last name" class="name" name="lname">
+      </div>
+      <br>
+      <input type="email" class="inputText" id="email" placeholder="Email" required>
+      <div class="wrap-country">
+        <label for="country">Your country:</label>
+      </div>
+      <div class="wrap-country">
+        <select name="country" id="country" size="2" multiple>
+          <option value="swiden">Sweden</option>
+          <option value="ukraine">Ukraine</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <input type="radio" id="student" name="prof" value="Student">
+        <label for="student">Student</label>
+        <input type="radio" id="employee" name="prof" value="Employee">
+        <label for="employee">Employee</label>
+      </div>
+      <br>
+      <input type="password" class="inputText" id="psw" name="psw" placeholder="Password">
+      <br>
+      <input type="password" class="inputText" id="conf_psw" name="conf_psw" placeholder="Confirm password">
+      <br>
+      <input type="checkbox" id="accept" name="accept" value="True">
+      <label for="accept">I accept the Privacy Policy</label>
+      <br><br>
+      <input type="submit" value="Register Now">
+    </form>
+    <div class="text-center">
+      <span class="txt">
+        Already have an account?
+      </span>
+      <a href="#" class="txt">
+        Sign in
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>
