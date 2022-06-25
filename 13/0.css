@@ -1,0 +1,40 @@
+.body {
+    position: relative;
+
+    background-color: #D2FFCE;
+}
+
+header {
+    text-align: center;
+    background-color: lightgray;
+    margin: 0px;
+}
+
+nav {
+    float: left;
+    background-color: greenyellow;
+    width: 100px;
+    height: 200px;
+}
+
+aside {
+    float: right;
+    width: 100px;
+    height: 200px;
+    background-color: greenyellow;
+}
+
+
+
+
+article {
+    height: 200px;
+    background-color: yellow;
+}
+
+footer {
+    display: block;
+    background-color: lightgray;
+    height: 100px;
+    margin: 0px;
+}
