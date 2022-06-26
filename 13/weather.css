@@ -1,0 +1,80 @@
+header {
+    text-align: center;
+    background-color: lightgray;
+    margin: 0px;
+}
+
+main {
+    overflow: hidden;
+}
+
+main header {
+
+    background-color: aqua;
+}
+
+main header>h2 {
+    margin-block: 0px;
+
+}
+
+.asideLeft {
+    float: left;
+}
+
+.asideRight {
+    float: right;
+}
+
+aside {
+    width: 109px;
+    height: 315px;
+    background-color: greenyellow;
+}
+
+aside a {
+    text-decoration: none;
+}
+
+.forecast {
+    overflow: hidden;
+    background-color: aquamarine;
+    margin: 0;
+    padding: 10px;
+}
+
+.forecast>h1 {
+    color: brown;
+    margin: 0px;
+    padding: 0px 50px;
+
+}
+
+.day-forecast {
+    padding: 0px 50px;
+    background-color: white;
+    border: 1px solid green;
+}
+
+.day-forecast>h3,
+p {
+    margin: 10px 0px;
+}
+
+main footer {
+    text-align: center;
+    height: 30px;
+    margin-block: 0px;
+}
+
+main footer>p {
+    margin-block: 0px;
+}
+
+footer {
+    display: block;
+    background-color: lightgray;
+    height: 100px;
+    /* margin: 0px; */
+    padding: 0px 10px;
+}
