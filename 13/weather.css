@@ -1,0 +1,22 @@
+body {
+    background-image: linear-gradient(0deg,#d8eeee,#d8eeee 25%,#64b3c9 65%,#005986 90%,#005986);
+}
+main header {
+    color: white;
+}
+.forecast {
+    overflow: hidden;
+    margin: 0;
+    padding: 10px;
+    background-image: linear-gradient(0deg,#d8eeee,#d8eeee 25%,#64b3c9 65%,#005986 90%,#005986);
+}
+.day-forecast {
+    padding: 0px 50px;
+    background-color: white;
+    border: 1px solid green;
+}
+
+.day-forecast>h3,
+p {
+    margin: 10px 0px;
+}
