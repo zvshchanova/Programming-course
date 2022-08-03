@@ -1,0 +1,46 @@
+<!-- task 50  Добавляем а, умножаем на 2, делим на 3, вычитаем 4, делаем остаток от 5 (например а%=5). -->
+<script>
+    var a = 30;
+    console.log(a += a) // 60
+    console.log(a *= 2) // 120
+    console.log(a /= 3) // 40
+    console.log(a -= 4) // 36
+    console.log(a %= 5) // 1
+</script>
+<!-- task 51:
+Пишем if(условие){ код }  7 раз с любым условием и любым кодом, разные условия пожалуйста.  Мы знаем математические операции, alert(), console.log(), вывод данных из array, если знаете что-то еще или что-то найдете сами- пожалуйста используйте. -->
+<script>
+    const mName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+        "November", "December"
+    ]
+    const days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+    let now = new Date(),
+        nowDay = now.getDate()
+        nowDayWeek = now.getDay(),
+        nowMth = now.getMonth(),
+        nowYear = now.getFullYear(),
+
+    console.log(now);
+    console.log(nowDay + "." + (nowMth + 1) + "." + nowYear);
+    console.log(days[nowDayWeek] + " " + mName[nowMth]);
+
+    let season;
+    if (nowMth <= 2 && nowMth == 11) {
+        season = "winter";
+    } else if (nowMth >= 2 && nowMth <=4 ) {
+        season = "spring";
+    } else if (nowMth >= 5 && nowMth <=7){ 
+        season = "summer";
+    } else{ 
+        season = "autumn";
+    }
+        console.log("Now is " + mName[nowMth] + " - " + season)
+</script>
+<!-- task 52:
+1)Пишем array состоящий из 5 строк (string). пишем в консоль каждый из элементов
+2) А теперь пишем это внутри функции которая принимает переменную. И если эта переменная типа число, выводим с помощью консоля содержимое этого места в array. (например x=2, array[x]), а если не типа число то пишем "Not a number" в консоле. -->
+<script>
+
+</script>
+<!-- task 53
+Попишите array несколько штук, пару функций, и пару if else это просто для практики- чем больше тем лучше. -->
