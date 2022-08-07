@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>61</title>
+    <link rel="stylesheet" href="61.css">
+</head>
+<body>
+    <h2>Clickable Dropdown</h2>
+    <p>Click on the button to open the dropdown menu.</p>
+    <div class="dropdown">
+        <button type="button" onclick="dropMenu()">Dropdown</button>
+        <div id="dropMenu" class="dropdown-content">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    
+</body>
+<script>
+    function dropMenu(){
+    document.getElementById("dropMenu").classList.toggle("showMenu")
+    }
+</script>
+</html> 
