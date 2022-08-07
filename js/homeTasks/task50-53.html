@@ -16,25 +16,25 @@
     const days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
     let now = new Date(),
         nowDay = now.getDate()
-        nowDayWeek = now.getDay(),
+    nowDayWeek = now.getDay(),
         nowMth = now.getMonth(),
         nowYear = now.getFullYear(),
 
-    console.log(now);
+        console.log(now);
     console.log(nowDay + "." + (nowMth + 1) + "." + nowYear);
     console.log(days[nowDayWeek] + " " + mName[nowMth]);
 
     let season;
     if (nowMth <= 2 && nowMth == 11) {
         season = "winter";
-    } else if (nowMth >= 2 && nowMth <=4 ) {
+    } else if (nowMth >= 2 && nowMth <= 4) {
         season = "spring";
-    } else if (nowMth >= 5 && nowMth <=7){ 
+    } else if (nowMth >= 5 && nowMth <= 7) {
         season = "summer";
-    } else{ 
+    } else {
         season = "autumn";
     }
-        console.log("Now is " + mName[nowMth] + " - " + season)
+    console.log("Now is " + mName[nowMth] + " - " + season)
 </script>
 <!-- task 52:
 1)Пишем array состоящий из 5 строк (string). пишем в консоль каждый из элементов
