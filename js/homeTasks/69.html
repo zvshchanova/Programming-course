@@ -1,0 +1,28 @@
+<!-- Задание 69:Напишите функцию JavaScript, чтобы проверить, содержит ли объект заданное свойство. -->
+<script>
+    const cat = {
+        pet: "кот",
+        name: "Пушок",
+        age: 1,
+        color: "white",
+    }
+
+    for (let key in cat){
+          if(cat[key] === 'Пушок') {
+            console.log(`${cat[key]} найден в объекте! Имя свойства: ${key}`) // Пушок найден в объекте! Имя свойства: name
+        }
+    }
+
+    var varArr = Object.values(cat); // ['кот', 'Пушок', 1, 'white']
+    for (let item of varArr) {
+        if (item === 'Пушок') {
+            console.log(`${item} найден в объекте!`)
+        }
+    };
+
+    // ищем имя свойства: 
+    console.log(cat.hasOwnProperty("pet")) // true
+    console.log("age" in cat) // true
+    console.log(cat.lastName !== undefined); // false
+ 
+</script>

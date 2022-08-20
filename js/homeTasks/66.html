@@ -1,0 +1,22 @@
+<!-- Задание 66: Напишите программу JavaScript для получения списка свойств объекта JavaScript. 2мя способами. 1 с использованием Object.keys(), а другой без его использования. -->
+<script>
+    var student = {
+        name: "David Rayy",
+        sclass: "VI",
+        rollno: 12
+    };
+    let res1="", res2="", res3=""; 
+    let studentKeys=Object.keys(student);
+    console.log(studentKeys)  //['name', 'sclass', 'rollno']
+    for (let key of studentKeys){
+        res1=res1+ key+', '
+    }
+    console.log(res1) // name, sclass, rollno, 
+
+    for(let key in student){
+        res2=res2+key+', '
+        res3=res3+student[key]+', '
+    }
+    console.log(res2);// name, sclass, rollno, 
+    console.log(res3);// David Rayy, VI, 12, 
+</script>

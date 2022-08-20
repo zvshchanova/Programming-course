@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+</body>
+<script>
+const cat ={
+    pet: "кот",
+    name: "Пушок",
+    age: 1,
+    color: "white",
+    repaint(newColor){
+        this.color = newColor;
+    },
+    chearfull: true,
+    temperament(){
+            if(this.age<5){
+            this.young = "молодой";
+            return "игривый";
+        }else{
+            this.young = "взрослый";
+            return "спокойный";
+        }
+    },
+
+    printout(){
+        console.log(`У меня есть ${this.pet}. Его зовут ${this.name}. Он ${this.temperament()} и ${this.young}.`)
+    },
+    hunger: 10,
+    feed(food){
+        if(food){
+            hanger=0;
+        }
+    }
+}
+cat.age = 10;
+cat.repaint("grey")
+//cat.likePlay();
+cat.printout();
+//const dog = Object.create(cat)
+
+</script>
+</html>
