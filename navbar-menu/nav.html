@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background: url("https://quezzle.se/img/1st_bg.jpg") center center no-repeat fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        header {
+            height: 500px;
+            background: url("https://quezzle.se/img/header-bg.jpg") center no-repeat fixed;
+            background-size: cover;
+        }
+
+        .textHeader {
+            font-family: 'Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif';
+            /* position: absolute;
+            top: 56%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+        }
+
+        .navbar-default .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        nav li {
+            padding: 0px 11px;
+        }
+
+        nav li a {
+            font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-transform: uppercase;
+            font-weight: bolder;
+            font-size: 14px;
+        }
+
+        dropdown-menu li a {
+            background-color: transparent;
+        }
+
+        .navbar-brand {
+            background-image: url("https://quezzle.se//img/escape-room-stockholm.svg");
+            width: 140px;
+            height: 140px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        .navbar-toggler {
+            border: 1px solid white;
+        }
+
+        @media only screen and (min-width: 768px) {
+            #about .vert {
+                height: 160px;
+            }
+
+        @media only screen and (max-width: 768px) {
+            #about .vert {
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-default bg-transparent">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+                    aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse " id="navbarToggler">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link " href="#rooms">ROOMS</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link " href="#rules">Rules</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link " href="#about">How?</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link " href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link " href="">Blog</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link " href="">Gift Card</a>
+                    </li>
+                    <li class="nav-item ms-auto">
+                        <a class="nav-link " href="#contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item dropdown ms-auto">
+                        <a class="nav-link dropdown-toggle " data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">Language</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="dropdown-item ">English</a></li>
+                            <li><a href="#" class="dropdown-item ">Swedish</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="w-100  position-relative">
+        <div class="col-12 text-white text-center textHeader position-absolute top-50">
+            <!-- mt-5 my-auto -->
+            <h2 class="titles">ESCAPE ROOM STOCKHOLM!</h2>
+            <h4 class="fst-italic">You will find yourself in an intellectual game atmosphere where there is only
+                one
+                way out.</h4>
+            <h4 class="fst-italic">Find solutions, use clues, solve riddles and puzzles.</h4>
+            <br>
+            <br>
+            <a class="bookButton" href="#rooms">BOOK NOW!</a>
+        </div>
+    </header>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+img {
+	height: 30%; 
+	width:30%; 
+	float:left;
+}
+.imgright{
+	float:right;
+}
+p {
+	height: 30%;
+}

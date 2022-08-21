@@ -78,3 +78,4 @@ class Person {
 const person1 = new Person('John', 45, true);
 const person2 = new Person('Anna', 44, true);
 person1.sayHi('Alex');
+

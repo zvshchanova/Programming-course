@@ -1,0 +1,118 @@
+body {
+    margin: auto;
+    font-size: 20px;
+    height: 1000px;
+}
+:root{
+    --color1: green;
+    --color2: rgb(154, 241, 23);
+    --color3: greenyellow;
+    --color4: white;
+}
+.menu{
+    width: 100%;
+    background-color: var(--color1);
+    color: var(--color4); 
+    padding: 0px;
+    position: sticky; 
+    top: 10px;
+ }
+.menu ul{
+    list-style-type: none;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+
+}
+.menu li{
+    float: left;
+}
+.menu li a{
+    width: 100%;
+    display: block;
+    font-size: 18px;
+    color: var(--color4);
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+.menu li a:hover {
+    background-color: var(--color3);
+    color: black;
+}
+
+.container{
+    width: 30%;
+    margin: auto;
+    border: solid green;
+    padding: 0px;
+    box-shadow: 0px 0px 10px var(--color2);
+    position: relative;
+    top: 50px;
+
+}
+
+.ind {
+    padding: 0px 10px 0px;
+    text-align: center;
+    background-image: linear-gradient(var(--color3), var(--color4));
+}
+
+img {
+    width: 60%;
+    margin: 0 auto;
+    backdrop-filter: opacity(50%);
+}
+
+button {
+    margin-bottom: 20px;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color2);
+}
+button:hover{
+    background-color: var(--color1);
+    cursor: pointer;
+}
+
+.inf {
+    border-top: 1px solid;
+    /* padding: 5px 30px; */
+    padding: 0% 10%;
+    background-image: linear-gradient(rgb(243, 243, 243), white);
+}
+h1 {
+    font-size: 3em;
+    margin: 0px;
+}
+#infCur{
+    color: var(--color1);
+}
+h2 {
+    margin-top: 0px;
+    color: var(--color1);
+    font-style: italic
+}
+
+p {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--color2);
+}
+
+ul {
+    font-size: .8em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 700px){
+	.container{
+		width: 50%;
+		/* font-size: 4vw; */
+	}
+} 

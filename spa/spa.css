@@ -1,0 +1,59 @@
+body {
+    text-align: center;
+    margin: auto;
+
+}
+.fon {
+    height: 50%;
+    background-color: #cccccc;
+    background-image: linear-gradient(greenyellow, blue);
+    width: 60%;
+    margin: 0 auto;
+}
+.fon p {
+    color: white;
+    font-size: 20px;
+    padding: 2px;
+}
+.fon img {
+    width:80%;
+}
+
+h1 {
+    font-family: "Lucida Handwriting";
+    color: white;
+    font-size: 30px;
+}
+
+.kard {
+    display: inline-block;
+    border: 1px solid blue;
+    border-radius: 10px;
+    width: 18%; 
+    padding: 5px; 
+    
+}
+hr{
+    margin: 10px -5px 0; 
+    height: 1px;
+    border-width: 0;
+    background-color: blue;
+}
+.kard img{
+    width: 80%;
+}
+button{
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+    margin: 0 auto;
+    border: 1px white solid;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background-color: greenyellow;
+    color: blue;
+}

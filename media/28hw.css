@@ -1,0 +1,27 @@
+.main {
+    display: block;
+    width: 300px;
+    height: 700px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid grey;
+}
+
+p {
+    text-align: left;
+}
+
+button {
+    color: white;
+    border: none;
+    background-color: rgb(55, 245, 181);
+    font-weight: 600;
+    ;
+    padding: 5px 12px;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: rgb(21, 192, 135);
+}

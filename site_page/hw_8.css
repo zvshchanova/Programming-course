@@ -1,0 +1,132 @@
+body {
+    /* width: 2000px; */
+    height: 2000px;
+}
+
+div.nav {
+    position: sticky;
+    top: 10px;
+    background-color: blue;
+    z-index: 1;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    font-size: 1.1em;
+    text-decoration: none;
+    padding: 10px;
+    border: solid blue;
+
+}
+
+li a:hover {
+    background-color: white;
+    color: blue;
+
+}
+
+div.container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 30%;
+}
+
+p.left-top {
+    font-weight: bold;
+    position: absolute;
+    left: 50px;
+}
+
+p.right-top {
+    position: absolute;
+    right: 50px;
+    font-size: .8em;
+    color: blue;
+}
+
+p.center-bold {
+    font-weight: bold;
+    font-size: .9em;
+}
+
+p.center-less {
+    font-size: .8em;
+}
+
+.container button {
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    background-color: rgba(0, 0, 255, 0.082);
+}
+
+.container button:hover {
+    background-color: blue;
+    color: white;
+}
+
+div.cookie {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    padding: 10px;
+    color: white;
+    margin: 0 auto;
+}
+
+.cookie span {
+    display: inline-block;
+}
+
+.cookie button {
+    width: 200px;
+    font-size: 1.0em;
+    padding: 5px;
+    background-color: transparent;
+    color: inherit;
+    border: 1px solid white;
+}
+
+.cookie button:hover {
+    background-color: blue;
+    border: none;
+}
+
+.active {
+    background-color: rgb(0, 174, 255);
+}
+
+p.LargeBolt {
+
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+p.cookieText {
+    font-size: .8em;
+    width: 300px;
+    /* padding-top: 0px; */
+    margin: 0 auto;
+}
