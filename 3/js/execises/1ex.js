@@ -1,6 +1,6 @@
 let username = "Bob";
 
-function sayHi(name){
+function sayHi(name) {
     console.log(`Привет, ${username}!`);
 }
 //sayHi("Bobi");
@@ -13,7 +13,7 @@ const arrsay = (name) => {
 const arrsay1 = (name) => console.log(`Привет, ${name}!`);
 //arrsay1("Marki");
 // or
-const sum = (a,b) =>  a + b;
+const sum = (a, b) => a + b;
 //console.log(sum(7,3));
 
 // массивы методы push, pop, shift, unshift, splice
@@ -28,12 +28,12 @@ auto.splice(2, 1); // удаляет эл с 2 эл 1 шт
 
 // циклы
 
-for (let i=0; i<auto.length; i++){
-//    console.log(auto[i]);
+for (let i = 0; i < auto.length; i++) {
+    //    console.log(auto[i]);
 };
 
 
-for (let item of auto){     //for of
+for (let item of auto) { //for of
     console.log(item);
 }
 // auto.forEach(function (item,index){
@@ -44,7 +44,7 @@ for (let item of auto){     //for of
 //     console.log(`${item} :: ${index}`);
 // };
 // auto.forEach(printitem);
-auto.forEach((item,index) => console.log(`${item} :: ${index}`));
+auto.forEach((item, index) => console.log(`${item} :: ${index}`));
 
 // обьекты
 // const person = {
@@ -66,15 +66,41 @@ auto.forEach((item,index) => console.log(`${item} :: ${index}`));
 // }
 // классы
 class Person {
-    constructor(userName, age, isMarried){
+    constructor(userName, age, isMarried) {
         this.userName = userName;
         this.age = age;
         this.isMarried = isMarried;
     }
-     sayHi (name){
-     console.log(`Привет, ${name}! Меня зовут ${this.userName}`);
-     }
+    sayHi(name) {
+        console.log(`Привет, ${name}! Меня зовут ${this.userName}`);
+    }
 }
-const person1 = new Person('John',45, true);
-const person2 = new Person('Anna',44, true);
+const person1 = new Person('John', 45, true);
+const person2 = new Person('Anna', 44, true);
 person1.sayHi('Alex');
+
+// ------------------------polindrom--------------------------------
+// 1 вариант
+function polindrom1(str) {
+    str.toLowerCase(); //  or str.toUpperCase();
+    let str2 = str.split(""); // or let str2 = [str];   в массив ['a', 'b', 'b', 'a', 't'] 
+    let str3 = str2.reverse(); //  ['t', 'a', 'b', 'b', 'a']
+    let str4 = str3.join("") // tabba
+    return str == str4 ? true : false;
+}
+console.log(`1 вариант ${polindrom1("Abba")}`)
+
+// 2 вариант
+const polindrom2 = (str) => { // стрелочная ф.ция или без скобок, так как один параметр  const polindrom2 = str =>{ 
+    str.toLowerCase(); //  or str.toUpperCase();
+    let str2 = str.split("").reverse().join("");
+    //    return str==str2 ? true : false;
+    console.log(`2 вариант ${str==str2 ? true : false}`)
+    alert(`2 вариант ${str==str2 ? true : false}`)
+}
+//alert(`2 вариант ${polindrom2("abbaz")}`)
+
+// 3  вариант
+let str = "кукb"
+const res = str.split("").reverse().join("");
+console.log(`3 вариант ${res ==str ? true : false}`)
