@@ -1,0 +1,16 @@
+.wrap {
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.right {
+    float: right;
+    padding: 0 20px;
+}
+
+.main {
+    width: 400px;
+    float: right;
+    display: block;
+}
