@@ -1,0 +1,29 @@
+<!-- Задание 62: (кавычки можно не показывать) Напишите HTML страницу, на которой есть кнопка и заголовок с Текстом ("Hello There").
+    При нажатии на кнопку в первый раз, текст меняется на "Hello First", при нажатии во второй раз, меняется на "Hello Second" ,
+    при нажатии в третий раз на "Hello Third".  При нажатии в четвертый снова на    "Hello First" и так далее. -->
+    <!DOCTYPE html>
+    <html>
+    <head>  
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>62</title>
+    </head>
+    <body>    
+        <h2 id="text">Hello There</h2>    
+        <button onclick="clickFunc('Hello ')">Click me</button>
+    </body>
+    <script>
+        const arrNum =["First","Second","Third"];  
+        let i = 0;
+        function clickFunc(text1) {
+            document.getElementById("text").innerHTML = text1 + arrNum[i];
+            if(i == arrNum.length - 1){
+                i=0;
+            }else{
+                i++;
+            }
+            console.log(i)
+        };
+    </script>  
+    </html>

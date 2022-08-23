@@ -1,0 +1,26 @@
+<!-- Задание 68: 
+Напишите программу на JavaScript, чтобы получить объем цилиндра с четырьмя знаками после запятой, 
+используя классы объектов.
+Volume of a cylinder : V = πr2h
+where r is the radius and h is the height of the cylinder. -->
+<script>
+    class volume {
+        constructor(radius, height) {
+            this.radius = radius;
+            this.height = height;
+        }
+        calcV() {
+            return Math.PI * this.radius * 2 * this.height;
+        }
+
+    }
+    const vol1 = new volume(10, 20)
+    console.log(vol1.calcV());             // 1256.6370614359173
+    console.log(vol1.calcV().toFixed(4));  // 1256.6371   
+
+    var strRes = String(vol1.calcV());
+    var cutpos=strRes.indexOf(".")+5;
+    console.log(strRes.substr(0, cutpos));     // 1256.6370
+    console.log(strRes.substring(0, cutpos));  // 1256.6370  
+
+</script>

@@ -1,0 +1,17 @@
+<script>
+    function check() {
+    let text;
+        switch(color.length){
+            case(7):
+            text ="Rainbow !!! ";
+            break;
+            default:
+            text ="No Rainbow ";
+        }
+        return text;
+    }
+    let color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+    color.forEach((element) => console.log(element));
+    var func = check()
+    console.log(func);
+</script>
