@@ -3,7 +3,7 @@
 //Адрес (объект адрес из модуля 1) и функция register(address), которая принимает объект адрес,
 //которая регистрирует человека если он не зарегистрирован по указанному адресу. (Соответственно необходимо импортировать модуль Address)
 
-import Adress from "./adress";
+import Adress from "./adress.js";
 class Citizen {
     constructor() {
         this.firstName = firstName;
@@ -13,9 +13,9 @@ class Citizen {
     }
         register() {
              if(!this.registered){
-                 let adr = Adress.getAdress("1", "2", "3", "4");                  
+                 return Adress.getAdress("Sweden", "Stockholm", "Hattmurklevägen", "1");                  
              };
         }
 
 };
-const citizen = new Citizen();
+//const citizen = new Citizen();
