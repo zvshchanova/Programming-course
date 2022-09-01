@@ -5,17 +5,18 @@
 
 import Adress from "./adress.js";
 class Citizen {
-    constructor() {
+    constructor(firstName, lastName, age, registered) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.registered = registered;  
+        this.adress = {};
     }
         register() {
              if(!this.registered){
-                 return Adress.getAdress("Sweden", "Stockholm", "Hattmurklevägen", "1");                  
+                this.adress = new Adress("Sweden", "Stockholm", "Hattmurklevägen", "1");
+                return this.adress;                
              };
         }
-
 };
-//const citizen = new Citizen();
+export default Citizen;

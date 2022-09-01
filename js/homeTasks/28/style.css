@@ -46,12 +46,6 @@ nav a:hover,
     float: none;
     display: block;
 }
-/* via css: */
-/* .dropdwn:hover .dropdown-cont{  
-    display: block;
-} */
-
-/* via js: */
 .show {
     display: block;
   }
@@ -64,8 +58,18 @@ footer {
 
 }
 main {
-    height: 10rem;
+    height: max-content;
     background-color: lightseagreen;
     text-align: center;
     padding: 1rem;
 }
+form {
+    margin-top: 1rem;
+    padding: 16px;
+    background-color: lightgrey;
+    border: 1px solid grey;  
+    border-radius: 6px;    
+    width: min-content;   
+    justify-content: center;  
+    
+    }
