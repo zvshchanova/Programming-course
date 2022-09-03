@@ -51,7 +51,7 @@ nav a:hover,
   }
 
 footer {
-    height: 10rem;
+    height: 5rem;
     background-color: lightgrey;
     text-align: center;
     padding: 1rem;
@@ -73,3 +73,6 @@ form {
     justify-content: center;  
     
     }
+    input:invalid:required {
+        border: 1px solid red;
+    } 
