@@ -1,4 +1,5 @@
 import Citizen from "./citizen.js";
+import Adress from "./adress.js";
 
 function buttonClick() {
   document.getElementById("funcDrop").classList.toggle("show");
@@ -16,143 +17,75 @@ window.onclick = function (e) {
 
 // create <main></main>
 let divMain = document.createElement('main');
-divMain.innerHTML = "MAIN section";
-
 let divHeader = document.querySelector("header");
 divHeader.after(divMain);
 
 let divMaindiv = document.createElement('div');
 divMain.append(divMaindiv);
 
+// create button Create
 let divButton = document.createElement('button');
 divButton.type = "button";
 divButton.innerHTML = "Create";
-divButton.addEventListener("click", clickBut);
+divButton.addEventListener("click", clickCreate);
 divMaindiv.append(divButton);
 
-function clickBut() {
-
+function clickCreate() {
+  const markupForm1 = () => {
+    return `<input type="text" class="person" id="fnid" name="firstName" placeholder="First Name"><br><br>
+    <input type="text" class="person" id="lnid" name="lastName" placeholder="Last Name"><br><br>
+    <input type="text" class="person" id="ageid" name="age" placeholder="Age"><br><br>`;
+  };
+  let tempDiv = document.createElement("form");
+  tempDiv.innerHTML = markupForm1();
+  divMain.append(tempDiv);
   let divButton2 = document.createElement('button');
   divButton2.type = "button";
   divButton2.innerHTML = "Create citizen";
-  divButton2.addEventListener("click", clickBut2);
+  divButton2.addEventListener("click", clickCreateCitizen);
+  divButton2.id = "butCreateCitizen";
   divMaindiv.append(divButton2);
-
-  let form = document.createElement('form');
-  divMaindiv.after(form);
-
-  let firstName = document.createElement("input");
-  firstName.setAttribute("type", "text");
-  firstName.setAttribute("name", "FirstName");
-  firstName.setAttribute("placeholder", "First Name");
-  firstName.setAttribute("ID", "fnid");
-  firstName.setAttribute("class", "person");
-  form.append(firstName);
-
-  let lastName = document.createElement("input");
-  lastName.setAttribute("type", "text");
-  lastName.setAttribute("name", "LastName");
-  lastName.setAttribute("placeholder", "Last Name");
-  lastName.setAttribute("ID", "lnid");
-  lastName.setAttribute("class", "person");
-  form.append(lastName);
-
-  let age = document.createElement("input");
-  age.setAttribute("type", "text");
-  age.setAttribute("name", "age");
-  age.setAttribute("placeholder", "Age");
-  age.setAttribute("ID", "ageid");
-  age.setAttribute("class", "person");
-  age.style = "display:show;";
-  form.append(age);
-
-  let country = document.createElement("input");
-  country.setAttribute("type", "text");
-  country.setAttribute("name", "country");
-  country.setAttribute("placeholder", "Country");
-  country.setAttribute("class", "adr");
-  // country.style = "display:none;";
-  form.append(country);
-
-  let city = document.createElement("input");
-  city.setAttribute("type", "text");
-  city.setAttribute("name", "city");
-  city.setAttribute("placeholder", "City");
-  city.setAttribute("class", "adr");
-  // city.style = "display:none;";
-  form.append(city);
-
-  let street = document.createElement("input");
-  street.setAttribute("type", "text");
-  street.setAttribute("name", "street");
-  street.setAttribute("placeholder", "Street");
-  street.setAttribute("class", "adr");
-  // street.style = "display:none;";
-  form.append(street);
-
-  let hn = document.createElement("input");
-  hn.setAttribute("type", "text");
-  hn.setAttribute("name", "hn");
-  hn.setAttribute("placeholder", "House nm");
-  hn.setAttribute("class", "adr");
-  // hn.style = "display:none";
-  form.append(hn);
 };
 
-function clickBut2() {
+function clickCreateCitizen() {
   const citizen1 = new Citizen(document.getElementById("fnid").value, document.getElementById("lnid").value, document.getElementById("ageid").value, false);
-  citizen1.register();
-  console.log(citizen1);
-  console.log(citizen1.adress);
-  console.log(citizen1.adress.country); //   Sweden
-
-  // hide person class
-  const nodePerson = document.querySelectorAll(".person");
-  console.log(nodePerson)
-  for (let i = 0; i < nodePerson.length; i++) {
-    nodePerson[i].style.display = "none";
+  let divp = document.createElement('p');
+  divp.innerHTML = `Citizen: ${citizen1.firstName} ${citizen1.lastName}`;
+  divMain.append(divp);
+  const markupForm2 = () => {
+    return `<input type="text" class="adr" id="countryid" name="country" placeholder="Country"><br><br>
+    <input type="text" class="adr" id="cityid" name="city" placeholder="City"><br><br>
+    <input type="text" class="adr" id="streetid" name="street" placeholder="Street"><br><br>
+    <input type="text" class="adr" id="hnid" name="hn" placeholder="House nm"><br><br>`;
   };
-  // show adr class
+  let tempDiv = document.querySelector("form");
+  tempDiv.innerHTML = markupForm2();
+  divMain.append(tempDiv);
 
-  const nodeadr = document.querySelectorAll(".adr");
-  console.log(nodeadr)
-  for (let i = 0; i < nodeadr.length; i++) {
-    nodeadr[i].style.display = "show";
-  };
+  const butReg = () => {
+    if (citizen1.registered == false) {
+      let divButton3 = document.createElement('button');
+      //     divButton3.innerHTML =`<button type="button" id="butRegister" onclick="clickRegister(citizen1)">Register</button>`;
+      divButton3.type = "button";
+      divButton3.innerHTML = "Register";
+      divButton3.id = "butRegister";
+      divButton3.addEventListener("click", function () {
+        const adress1 = new Adress(document.getElementById("countryid").value, document.getElementById("cityid").value, document.getElementById("streetid").value, document.getElementById("hnid").value);
+        citizen1.register(adress1);
+        console.log(citizen1.adress.country);
+        let divp2 = document.createElement('p');
+        divp2.innerHTML = `registered at: ${citizen1.adress.country} ${citizen1.adress.city}  ${citizen1.adress.street} ${citizen1.adress.hn}`;
+        divMain.append(divp2);
+        final();
+      });
+      divMaindiv.append(divButton3)
+    }
+  }
+  butReg();
+};
 
-  let divButton3 = document.createElement('button');
-  divButton3.type = "button";
-  divButton3.innerHTML = "Register";
-  divButton3.addEventListener("click", clickBut3());
-  divMaindiv.append(divButton3)
+function final(citizen1) {
+  document.querySelector('form').style.display = "none";
+  document.getElementById("butCreateCitizen").style.display = "none";
+  document.getElementById("butRegister").style.display = "none";
 }
-function clickBut3(){
-  // for (let i = 0; i < nodePerson.length; i++) {
-  //   nodePerson[i].style.display = "show";
-  // };
-  // for (let i = 0; i < nodeadr.length; i++) {
-  //   nodeadr[i].style.display = "none";
-  // };
-
-  // alert(`Citizen ${citizen1.firstName} ${citizen1.lastName} registered`);
-  //alert(citizen1.firstName);
-}
-
-
-//InsertBefore() hn
-//elem.insertAdjacentElement("afterend", divButton); "beforeend", "beforbegin"
-//elem.insertAdjacentHTML()
-
-// create a submit button
-// var s = document.createElement("input");
-// s.setAttribute("type", "submit");
-// s.setAttribute("value", "Submit");
-
-// Append the full name input to the form
-// form.appendChild(FN);
-//divMaindiv.prepend(divButton); // вначале
-//divMaindiv.append(divButton);
-//or
-//divMaindiv.insertAdjacentElement("afterend",divButton);
-//document.body.append(divMain);   // В конце тега body
-//document.body.prepend(divMain);  // В начале тега body

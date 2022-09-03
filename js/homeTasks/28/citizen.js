@@ -9,14 +9,10 @@ class Citizen {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.registered = registered;  
-        this.adress = {};
+        this.registered = registered; 
     }
-        register() {
-             if(!this.registered){
-                this.adress = new Adress("Sweden", "Stockholm", "Hattmurklevägen", "1");
-                return this.adress;                
+        register(adress) {
+                this.adress = adress;             
              };
-        }
-};
+        };
 export default Citizen;

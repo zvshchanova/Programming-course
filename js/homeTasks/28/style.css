@@ -60,7 +60,7 @@ footer {
 main {
     height: max-content;
     background-color: lightseagreen;
-    text-align: center;
+    /* text-align: center; */
     padding: 1rem;
 }
 form {
