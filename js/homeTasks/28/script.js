@@ -1,9 +1,9 @@
 import Citizen from "./citizen.js";
 import Adress from "./adress.js";
 
-function buttonClick() {
+document.getElementById("buttonClick").onclick = () => {
   document.getElementById("funcDrop").classList.toggle("show");
-}
+};
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (e) {
@@ -26,14 +26,13 @@ divButton.addEventListener("click", clickCreate);
 divButton.id = "butCreate";
 divMain.append(divButton);
 
+
 function clickCreate() {
   document.getElementById("butCreate").style.display = 'none';
   const markupForm1 = () => {
     return `<input type="text" class="person" id="fnid" name="firstName" placeholder="First Name" required><br><br>
     <input type="text" class="person" id="lnid" name="lastName" placeholder="Last Name" required><br><br>
     <input type="text" class="person" id="ageid" name="age" placeholder="Age" required><br><br>
-    <label for "check">Registred</label>
-    <input type="checkbox" class="person" id="checkid" name="check"><br><br>
     `;
   };
   let tempDiv = document.createElement("form");
@@ -72,7 +71,7 @@ function clickCreateCitizen() {
   const butReg = () => {
     if (citizen1.registered == false) {
       let divButton3 = document.createElement('button');
-      divButton3.innerHTML =`<button type="button" id="butRegister">Register</button>`;
+      divButton3.innerHTML = `<button type="button" id="butRegister">Register</button>`;
       divButton3.addEventListener("click", function () {
         const adress1 = new Adress(document.getElementById("countryid").value, document.getElementById("cityid").value, document.getElementById("streetid").value, document.getElementById("hnid").value);
         citizen1.register(adress1);
@@ -84,5 +83,5 @@ function clickCreateCitizen() {
       document.querySelector("form").append(divButton3);
     }
   }
-   butReg();
+  butReg();
 };

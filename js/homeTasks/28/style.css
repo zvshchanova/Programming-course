@@ -10,14 +10,14 @@ nav {
 
 nav a {
     float: left;
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 1rem;
     color: inherit;
     text-decoration: none;
 }
 
 .dropdwn .dropbtn {
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 1rem;
     color: inherit;
     outline: none;
