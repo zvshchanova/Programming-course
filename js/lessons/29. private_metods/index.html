@@ -1,0 +1,19 @@
+<script>
+    class Cat {
+        #owner;
+        constructor(name, color, age, owner){
+            this.name=name;
+            this.color=color;
+            this.age=age;
+            this.#owner = owner;
+        }
+        say() {
+            console.log("The cat called "+this.name+' '+ this.color)
+        }
+        changeOwner(newOwner){
+        this.#owner = newOwner;
+    }
+    }
+let cat1 = new Cat ("Murzik", "white", 3, "Luis");
+cat1.say();
+</script>
