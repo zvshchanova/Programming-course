@@ -5,6 +5,7 @@ document.getElementById("buttonClick").onclick = () => {
   document.getElementById("funcDrop").classList.toggle("show");
 };
 
+
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (e) {
   if (!e.target.matches('.dropbtn')) {
@@ -52,7 +53,6 @@ function clickCreateCitizen() {
     alert("Please fill all field!")
     return;
   }
-
   const citizen1 = new Citizen(document.getElementById("fnid").value, document.getElementById("lnid").value, document.getElementById("ageid").value, false);
   let divp = document.createElement('p');
   divp.innerHTML = `Citizen: ${citizen1.firstName} ${citizen1.lastName}`;
