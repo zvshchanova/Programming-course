@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fetch.css">
+</head>
+
+<body>
+    <h1>Login Form</h1>
+    <input id="name" type="text" placeholder="name" required> </input>
+    <input id="idInput" type="text" placeholder="ID" required> </input>
+    <button onclick="login()">login</button>
+    <p id="message"></p>
+    <div id="card"></div>
+</body>
+    <script>
+        async function login() {
+            let inputId = document.getElementById("idInput").value;
+            let enterName = document.getElementById("name").value;
+            if (inputId === "" || enterName === "") {
+                mess("Please fill both fields.")
+                return;
+            }
+            let url = "https://reqres.in/api/users/" + inputId;
+            let response = await fetch(url);
+            let userInfo = await response.json();
+            console.log(userInfo);
+
+            let getName = userInfo.data.first_name;
+            if (enterName != getName) {
+                mess("Sorry, name is not correct.");
+            } else {
+                mess("");
+                result()
+            }
+
+            function mess(message) {
+                const pMessage = `<p>${message}</p>`
+                let mes = document.querySelector("#message");
+                mes.innerHTML = message;
+            }
+
+            function result() {
+                let kardEl = document.querySelector("#card");
+                let kardContent = `
+                <img src=${userInfo.data.avatar} style="width:100%">
+                <h3>${getName} ${userInfo.data.last_name}</h3>
+                <p>Email: ${userInfo.data.email}</p>`
+                kardEl.innerHTML = kardContent;
+            };
+        }
+    </script>
+</html>
