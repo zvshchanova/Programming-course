@@ -1,7 +1,156 @@
 <!-- Представим что мы разрабатываем каталог Авиалиний. 
 На страничке которую мы разрабатываем, нам необходимо иметь возможность добавлять новую авиалинию в наш каталог. 
 Делать это мы будем с помошью вот этого АПИ: https://www.instantwebtools.net/fake-rest-api#create-airline
-
 Ваша задача написать форму для ввода этих данных, и при нажатии на кнопку "Добавить", 
 сделать запрос на https://api.instantwebtools.net/v1/airlines
 Ответ вывести в консоль. Если всё прошло успешно, добавляем под форму текст зелёного цвета и пишем "Компания добавлена успешно!", иначе красного цвета с "Что-то пошло не так, попробуйте еще" -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirLines</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        main {
+            background-color: lightgrey;
+            width: 600px;
+            height: 200px;
+            display: block;
+        }
+
+        input,
+        button {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <form id="form" method="post">
+            <input type="text" id="idInput" placeholder="ID" value="1"></input>
+            <input type="text" id="nameInput" placeholder="Name" value="Quatar Airways"></input>
+            <input type="text" id="nameInput" placeholder="Country" value="Quatar"></input>
+            <input type="url" id="logoInput" placeholder="Logo"
+                value="https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/300px-Qatar_Airways_Logo.svg.png"></input>
+            <input type="text" id="sloganInput" placeholder="slogan" value="Going Places Together"></input>
+            <input type="text" id="head_quatersInput" placeholder="head_quaters"
+                value="Qatar Airways Towers, Doha, Qatar"></input>
+            <input type="text" id="websiteInput" placeholder="website" value="www.qatarairways.com"></input>
+            <input type="text" id="establishedInput" placeholder="established" value="1994"></input>
+
+            <button type="submit" onclick="""check()">Check airline</button>
+            <button onclick="add()">Add new airLine</button>
+        </form>
+    </main>
+
+</body>
+<script>
+    async function check_id() {
+        let idInput = document.getElementById("idInput").value;
+        let url = "https://api.instantwebtools.net/v1/airlines/" + idInput;
+        let response = await fetch(url);
+        let result = await response.json();
+        console.log(result);
+        console.log(response.status); // 200 !!!
+    }
+
+    async function check() {
+    var form = document.getElementById('form')
+    // let idInput = document.getElementById("idInput").value;
+    // let nameInput = document.getElementById("nameInput").value;
+    // let airline = {
+    //     id: idInput,
+    //     name: nameInput
+    // }
+    let airline = {
+        id: 1,
+        name: "Quatar Airways",
+        country: "Quatar",
+        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/300px-Qatar_Airways_Logo.svg.png",
+        slogan: "Going Places Together",
+        head_quaters: "Qatar Airways Towers, Doha, Qatar",
+        website: "www.qatarairways.com",
+        established: "1994"
+    };
+    let url = "https://api.instantwebtools.net/v1/airlines/"
+    let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8'
+            },
+            body: JSON.stringify(airline)
+        });
+        // .then(function (response) {
+        //     return response.json()
+        // })
+        // .then(function (data) {
+        //     console.log(data)
+        // }).catch(error => console.error('Error:', error));
+
+
+        // let result = await response.json();
+        // console.log(result);
+        // console.log(response.status); // 200 !!!
+    };
+
+
+
+
+    async function check0() {
+        let idInput = document.getElementById("idInput").value;
+        let nameInput = document.getElementById("nameInput").value;
+        // let airline = {
+        //     id: idInput,
+        //     name: nameInput
+        // }
+
+        let airline = {
+            id: 1,
+            name: "Quatar Airways",
+            country: "Quatar",
+            logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/300px-Qatar_Airways_Logo.svg.png",
+            slogan: "Going Places Together",
+            head_quaters: "Qatar Airways Towers, Doha, Qatar",
+            website: "www.qatarairways.com",
+            established: "1994"
+        };
+        // console.log("Airline:", airline)
+        let url = "https://api.instantwebtools.net/v1/airlines/" + idInput;
+        let response = await fetch(url);
+        // let responce = await fetch(url, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: airline
+        // });
+
+        let result = await response.json();
+        //   alert(response.status == 200 ? "Successful" : "Unsuccessful");
+        console.log(result);
+        console.log(response.status);
+
+    }
+</script>
+
+</html>
+
+
+
+<!-- {
+    "id": 1,
+    "name": "Quatar Airways",
+    "country": "Quatar",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/300px-Qatar_Airways_Logo.svg.png",
+    "slogan": "Going Places Together",
+    "head_quaters": "Qatar Airways Towers, Doha, Qatar",
+    "website": "www.qatarairways.com",
+    "established": "1994"
+} -->
