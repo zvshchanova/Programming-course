@@ -37,9 +37,9 @@
 <script>
     async function login() {
         let emailInput = document.getElementById("email").value;
-        let passwordInput = document.getElementById("password").value; 
-            // "email": "eve.holt@reqres.in",
-            // "password": "cityslicka"
+        let passwordInput = document.getElementById("password").value;
+        // "email": "eve.holt@reqres.in",
+        // "password": "cityslicka"
         let userLogin = {
             email: emailInput,
             password: passwordInput
@@ -55,7 +55,13 @@
             body: userLoginJson
         });
         let result = await response.json();
-        alert(response.status == 200 ? "Login Successful" : "Login Unsuccessful");
+        if (response.status == 200) {
+            alert("success")
+        } else  {
+            alert(result.error)
+        }
+
+        //alert(response.status == 200 ? "Login Successful" : "Login Unsuccessful");
         console.log(result);
     }
 
@@ -81,7 +87,12 @@
             body: JSON.stringify(user)
         });
         let result = await response.json();
-        alert(response.status == 200 ? "Login Successful" : "Login Unsuccessful");
+        if (response.status == 200) {
+            alert("success")
+        } else  {
+            alert(result.error)
+        }
+        // alert(response.status == 200 ? "Login Successful" : "Login Unsuccessful");
         console.log(result);
     }
 </script>

@@ -45,7 +45,7 @@
             <input type="text" id="websiteInput" placeholder="website" value="www.qatarairways.com"></input>
             <input type="text" id="establishedInput" placeholder="established" value="1994"></input>
 
-            <button type="submit" onclick="""check()">Check airline</button>
+            <button type="submit" onclick="check()">Check airline</button>
             <button onclick="add()">Add new airLine</button>
         </form>
     </main>
@@ -79,11 +79,11 @@
         website: "www.qatarairways.com",
         established: "1994"
     };
-    let url = "https://api.instantwebtools.net/v1/airlines/"
+    let url = "https://api.instantwebtools.net/v1/airlines/";
     let response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json; charset=UTF-8'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(airline)
         });
