@@ -1,0 +1,142 @@
+<!-- Представим что мы разрабатываем каталог Авиалиний. 
+На страничке которую мы разрабатываем, нам необходимо иметь возможность добавлять новую авиалинию в наш каталог. 
+Делать это мы будем с помошью вот этого АПИ: https://www.instantwebtools.net/fake-rest-api#create-airline
+Ваша задача написать форму для ввода этих данных, и при нажатии на кнопку "Добавить", 
+сделать запрос на https://api.instantwebtools.net/v1/airlines
+Ответ вывести в консоль. Если всё прошло успешно, добавляем под форму текст зелёного цвета и пишем "Компания добавлена успешно!", иначе красного цвета с "Что-то пошло не так, попробуйте еще" -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        main {
+            background-color: lightgrey;
+            width: 600px;
+            height: 200px;
+            display: block;
+        }
+
+        input,
+        button {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="idInput" placeholder="ID" value="1"></input>
+    <input type="text" id="nameInput" placeholder="Name" value="Quatar Airways"></input>
+    <input type="text" id="nameInput" placeholder="Country" value="Quatar"></input>
+    <input type="url" id="logoInput" placeholder="Logo"
+        value="https://www.w3schools.com/howto/howto_css_loader.asp"></input>
+    <input type="text" id="sloganInput" placeholder="slogan" value="Going Places Together"></input>
+    <input type="text" id="head_quatersInput" placeholder="head_quaters"
+        value="Qatar Airways Towers, Doha, Qatar"></input>
+    <input type="text" id="websiteInput" placeholder="website" value="www.qatarairways.com"></input>
+    <input type="text" id="establishedInput" placeholder="established" value="1994"></input>
+
+    <button onclick="add()">Add new airLine  400</button>
+    <button onclick="get_200()">Get airline id</button>
+
+</body>
+<script>
+    async function get_200() {
+        let idInput = document.getElementById("idInput").value;
+        // let url = "https://api.instantwebtools.net/v1/airlines/" + idInput;
+        let url = "https://api.instantwebtools.net/v1/airlines/2";
+        let response = await fetch(url);
+        let result = await response.json();
+        console.log(result);
+        console.log(response.status); // 200 !!!
+    }
+    async function add() {
+        fetch("https://api.instantwebtools.net/v1/airlines", {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                    //id: 9999991,
+                    name: "MAO",
+                    logo: "",
+                    slogan: "We are from Ukraine",
+                    head_quaters: "",
+                    website: "",
+                    established: ""
+                })
+            })
+            .then(resp => {
+                console.log("Response status: ", resp.status);
+                return resp.json()
+            })
+            .then(data => console.log(data))
+            .catch(error => console.log("ERROR !!!"))
+    }
+    //{message: 'error in saving data'}  
+    //{message: "there is an airline registered under same id you've entered"}
+
+
+    async function addPOST() {
+        fetch('https://api.instantwebtools.net/v1/airlines', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                    id: 12,
+    //                id: 98765432101,
+                    name: "Sri Lankan Airways.",
+                    country: "Sri Lanka",
+                    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/sri_lanka.png",
+                    slogan: "From Sri Lanka",
+                    head_quaters: "Katunayake, Sri Lanka",
+                    website: "www.srilankaairways.com",
+                    established: "1990"
+                })
+            }) .then(resp => {
+                console.log("Response status: ", resp.status);
+                return resp.json()
+            })
+            .then(data => console.log(data))
+            .catch(error => console.log("ERROR !!!"))
+
+            // .then((response) => {
+            //     if(response.ok) {
+            //         console.log ("Success ",response.status) // true
+            //     } else {
+            //         console.log ("UnSuccess ",response.ok ,response.status) // true
+            //     }
+            // })
+
+            //.then((response) => response.json())
+            //.then((json) => console.log(json));   //{message: 'error in saving data'}  {message: "there is an airline registered under same id you've entered"}
+
+                //console.log (response.status)
+
+//            .then((response) => response.json())
+//            .then((json) => console.log(json));   //{message: 'error in saving data'}  {message: "there is an airline registered under same id you've entered"}
+
+//        let result = await response.json();
+//        alert(result.error)
+//        console.log(response.status)
+
+        // .catch(error => console.error('Error:', error));
+
+        // .then(function (response) {
+        //     return response.json()
+        // })
+        // .then(function (data) {
+        //     console.log(data)
+        // }).catch(error => console.error('Error:', error));
+    }
+</script>
+
+</html>
