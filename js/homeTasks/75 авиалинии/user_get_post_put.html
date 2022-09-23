@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+</head>
+
+<body>
+    <button onclick="funcGet()"> GET 200</button>
+    <button onclick="funcPost()"> POST 200</button>
+    <button onclick="funcPut()"> PUT 404</button>
+
+</body>
+
+</html>
+
+<script>
+    async function funcGet() {
+        let response = await fetch("https://reqres.in/api/users/3")
+        // .then(res => {
+        //         if (res.ok) return res.json()
+        //         return Promise.reject(res)
+        //     })
+        ;
+        let userInfo = await response.json();
+        console.log(userInfo);
+    }
+
+    async function funcPost() {
+        fetch("https://reqres.in/api/users", {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                    id: "851",
+                    name: "User 123",
+                })
+            })
+            .then(resp => {
+                console.log("Response status: ", resp.status);
+                return resp.json()
+            })
+            .then(data => console.log(data))
+            .catch(error => console.log("ERROR !!!"))
+    }
+
+    async function funcPut() {
+        fetch("https://reqres.in/api/users", {
+                method: "PUT",
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                    name: "User 1235454545460_",
+                    // job: "not",
+                    // updatedAt: "2022-09-23T09:15:07.206Z"
+                })
+            })
+            .then(res => {
+                if (res.ok) return res.json()
+                return Promise.reject(res)
+            })
+        //.catch(e => console.error(e.name))
+        // .then(resp => {
+        //     console.log("Response status: ",resp.status);
+        //     return resp.json()
+        // })
+        // .then(data => console.log(data))
+    }
+</script>
