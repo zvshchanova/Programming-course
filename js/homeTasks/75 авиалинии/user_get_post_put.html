@@ -14,9 +14,6 @@
     <button onclick="funcPut()"> PUT 404</button>
 
 </body>
-
-</html>
-
 <script>
     async function funcGet() {
         let response = await fetch("https://reqres.in/api/users/3")
@@ -49,22 +46,27 @@
     }
 
     async function funcPut() {
-        fetch("https://reqres.in/api/users", {
+        fetch("https://reqres.in/api/users/3", {
                 method: "PUT",
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
                 body: JSON.stringify({
-                    name: "User 1235454545460_",
+                    name: "User 3",
                     // job: "not",
                     // updatedAt: "2022-09-23T09:15:07.206Z"
                 })
             })
-            .then(res => {
-                if (res.ok) return res.json()
-                return Promise.reject(res)
+            .then(response => {
+                if (response.ok) return response.json()
+                return Promise.reject(response)
             })
-        //.catch(e => console.error(e.name))
+            //.then((response) => response.json())
+            .then((json) => console.log(json));
+
+
+
+        // .catch(e => console.error(e.name))
         // .then(resp => {
         //     console.log("Response status: ",resp.status);
         //     return resp.json()
@@ -72,3 +74,5 @@
         // .then(data => console.log(data))
     }
 </script>
+
+</html>

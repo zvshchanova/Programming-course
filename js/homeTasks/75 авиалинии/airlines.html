@@ -33,110 +33,69 @@
 
 <body>
     <input type="text" id="idInput" placeholder="ID" value="1"></input>
-    <input type="text" id="nameInput" placeholder="Name" value="Quatar Airways"></input>
-    <input type="text" id="nameInput" placeholder="Country" value="Quatar"></input>
-    <input type="url" id="logoInput" placeholder="Logo"
-        value="https://www.w3schools.com/howto/howto_css_loader.asp"></input>
-    <input type="text" id="sloganInput" placeholder="slogan" value="Going Places Together"></input>
-    <input type="text" id="head_quatersInput" placeholder="head_quaters"
-        value="Qatar Airways Towers, Doha, Qatar"></input>
-    <input type="text" id="websiteInput" placeholder="website" value="www.qatarairways.com"></input>
-    <input type="text" id="establishedInput" placeholder="established" value="1994"></input>
+    <input type="text" id="nameInput" placeholder="Name" value="MAO"></input>
+    <input type="text" id="countryInput" placeholder="Country" value="Ukraine"></input>
+    <input type="url" id="logoInput" placeholder="Logo" value=""></input>
+    <input type="text" id="sloganInput" placeholder="slogan" value="We are from Ukraine"></input>
+    <input type="text" id="head_quatersInput" placeholder="head_quaters" value=""></input>
+    <input type="text" id="websiteInput" placeholder="website" value=""></input>
+    <input type="text" id="establishedInput" placeholder="established" value=""></input>
 
-    <button onclick="add()">Add new airLine  400</button>
-    <button onclick="get_200()">Get airline id</button>
-
+    <button onclick="add()">Add new airLine 400</button>
+    <button onclick="funcGet()">Get airline id</button>
+    <p id="message"></p>
 </body>
 <script>
-    async function get_200() {
+    async function funcGet() {
         let idInput = document.getElementById("idInput").value;
-        // let url = "https://api.instantwebtools.net/v1/airlines/" + idInput;
-        let url = "https://api.instantwebtools.net/v1/airlines/2";
+        let url = "https://api.instantwebtools.net/v1/airlines/" + idInput;
         let response = await fetch(url);
         let result = await response.json();
         console.log(result);
         console.log(response.status); // 200 !!!
     }
     async function add() {
+        let idInput = document.getElementById("nameInput").value;
+        let countryInput = document.getElementById("countryInput").value;
+        let logoInput = document.getElementById("logoInput").value;
+        let sloganInput = document.getElementById("sloganInput").value;
+        let head_quatersInput = document.getElementById("head_quatersInput").value;
+        let websiteInput = document.getElementById("websiteInput").value;
+        let establishedInput = document.getElementById("establishedInput").value;
         fetch("https://api.instantwebtools.net/v1/airlines", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
                 body: JSON.stringify({
-                    //id: 9999991,
-                    name: "MAO",
-                    logo: "",
-                    slogan: "We are from Ukraine",
-                    head_quaters: "",
-                    website: "",
-                    established: ""
+                    name: nameInput,
+                    country: countryInput,
+                    logo: logoInput,
+                    slogan: sloganInput,
+                    head_quaters: head_quatersInput,
+                    website: websiteInput,
+                    established: establishedInput
                 })
             })
-            .then(resp => {
-                console.log("Response status: ", resp.status);
-                return resp.json()
+            .then(response => {
+                 console.log("Response status: ", response.status);
+                 return response.json()
+                // if (response.ok) return response.json()
+                // return Promise.reject(response)
             })
-            .then(data => console.log(data))
-            .catch(error => console.log("ERROR !!!"))
+            .then(data =>
+                console.log(data))
+            .catch(error => console.log("ERROR"))
     }
-    //{message: 'error in saving data'}  
-    //{message: "there is an airline registered under same id you've entered"}
 
-
-    async function addPOST() {
-        fetch('https://api.instantwebtools.net/v1/airlines', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-                body: JSON.stringify({
-                    id: 12,
-    //                id: 98765432101,
-                    name: "Sri Lankan Airways.",
-                    country: "Sri Lanka",
-                    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Qatar_Airways_Logo.svg/sri_lanka.png",
-                    slogan: "From Sri Lanka",
-                    head_quaters: "Katunayake, Sri Lanka",
-                    website: "www.srilankaairways.com",
-                    established: "1990"
-                })
-            }) .then(resp => {
-                console.log("Response status: ", resp.status);
-                return resp.json()
-            })
-            .then(data => console.log(data))
-            .catch(error => console.log("ERROR !!!"))
-
-            // .then((response) => {
-            //     if(response.ok) {
-            //         console.log ("Success ",response.status) // true
-            //     } else {
-            //         console.log ("UnSuccess ",response.ok ,response.status) // true
-            //     }
-            // })
-
-            //.then((response) => response.json())
-            //.then((json) => console.log(json));   //{message: 'error in saving data'}  {message: "there is an airline registered under same id you've entered"}
-
-                //console.log (response.status)
-
-//            .then((response) => response.json())
-//            .then((json) => console.log(json));   //{message: 'error in saving data'}  {message: "there is an airline registered under same id you've entered"}
-
-//        let result = await response.json();
-//        alert(result.error)
-//        console.log(response.status)
-
-        // .catch(error => console.error('Error:', error));
-
-        // .then(function (response) {
-        //     return response.json()
-        // })
-        // .then(function (data) {
-        //     console.log(data)
-        // }).catch(error => console.error('Error:', error));
-    }
+    // function outputResult(){
+    //     const message = "Airline was added";
+    //     let idInput = document.getElementById("message");
+    //     idInput.innerHTML = message
+    // }
 </script>
 
 </html>
+
+<!-- {message: 'error in saving data'}  
+{message: "there is an airline registered under same id you've entered"} -->
