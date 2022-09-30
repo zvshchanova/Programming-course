@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div >
+        <p id=info>You have not done query</p>
+        <button id=query>Make query</button>
+    </div>
+    <script>
+        function makeQuery(target){
+            fetch('https://api.instantwebtools.net/v1/passenger',{ method:"GET"})
+            .then((res) => res.json() )
+            .then( (res)=>{console.log(res)
+                fetch('https://api.instantwebtools.net/v1/passenger/63315b304c0bd13f63950344',{ method:"DELETE"})
+                .then((res) => {info.innerHTML = res.statusText 
+                    fetch('https://api.instantwebtools.net/v1/passenger',{ method:"GET"})
+                    .then((res) => res.json() )
+                    .then( (res)=>console.log(res))
+
+                })
+            })
+        }
+
+        query.addEventListener("click", makeQuery)
+
+
+        
+    </script>
+</body>
+</html>

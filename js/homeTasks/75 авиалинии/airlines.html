@@ -1,0 +1,149 @@
+<!-- Представим что мы разрабатываем каталог Авиалиний. 
+На страничке которую мы разрабатываем, нам необходимо иметь возможность добавлять новую авиалинию в наш каталог. 
+Делать это мы будем с помошью вот этого АПИ: https://www.instantwebtools.net/fake-rest-api#create-airline
+Ваша задача написать форму для ввода этих данных, и при нажатии на кнопку "Добавить", 
+сделать запрос на https://api.instantwebtools.net/v1/airlines
+Ответ вывести в консоль. Если всё прошло успешно, добавляем под форму текст зелёного цвета и пишем "Компания добавлена успешно!", иначе красного цвета с "Что-то пошло не так, попробуйте еще" -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        main {
+            background-color: lightgrey;
+            width: 600px;
+            height: 200px;
+            display: block;
+        }
+
+        input,
+        button {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="idInput" placeholder="ID" value="1"></input>
+    <input type="text" id="nameInput" placeholder="Name" value="MAO"></input>
+    <input type="text" id="countryInput" placeholder="Country" value="Ukraine"></input>
+    <input type="url" id="logoInput" placeholder="Logo" value=""></input>
+    <input type="text" id="sloganInput" placeholder="slogan" value="We are from Ukraine"></input>
+    <input type="text" id="head_quatersInput" placeholder="head_quaters" value=""></input>
+    <input type="text" id="websiteInput" placeholder="website" value=""></input>
+    <input type="text" id="establishedInput" placeholder="established" value=""></input>
+
+    <button onclick="add()">Add new airLine 400</button>
+    <button onclick="funcGet()">Get airline id</button>
+    <button onclick="funcDeletePass()">Delete passager</button>
+    <p id="message"></p>
+</body>
+<script>
+    async function funcDeletePass() {
+        let idPass = "633199c2eb4e4ba9323e8ffe";
+        let url = "https://api.instantwebtools.net/v1/passenger/" + idPass;
+        // fetch(url,{ method:"GET"})
+        //     .then(res => res.json() )
+        //     .then(res=>console.log(res))
+
+        fetch(url)
+        .then(response => {
+            if (response.ok) {console.log(response)}
+            else {console.log("HTTP request unsuccessful")}
+            return response
+
+        })     
+            .then(response =>
+                response.json()
+
+                // {
+                //     if (response.status == "200")
+                //         response.json()
+                //     return "unsuccess"
+                // }
+            )
+            .then(response => {
+                //console.log(response.statusText + " "+ response.status)
+                console.log(response)
+            })
+
+            .then(response => {
+                fetch(url, {
+                        method: "DELETE",
+                        'Content-type': 'application/json; charset=UTF-8',
+                    }).then(response => response.json())
+                    .then((json) => {
+                        console.log(json) //"message": "Passenger data deleted successfully."
+                        fetch(url)
+                            .then(response => {
+                                if (response.ok) return
+                                //response.json()
+                            })
+                            .then(response => console.log(response))
+                    })
+            })
+
+    }
+
+    function outputResult() {
+        const message = "Airline was added";
+        let idInput = document.getElementById("message");
+        idInput.innerHTML = message
+    }
+    async function funcGet() {
+        let idInput = document.getElementById("idInput").value;
+        let url = "https://api.instantwebtools.net/v1/airlines/" + idInput;
+        let response = await fetch(url);
+        let result = await response.json();
+        console.log(result);
+        console.log(response.status); // 200 !!!
+    }
+    async function add() {
+        let nameInput = document.getElementById("nameInput").value;
+        let countryInput = document.getElementById("countryInput").value;
+        let logoInput = document.getElementById("logoInput").value;
+        let sloganInput = document.getElementById("sloganInput").value;
+        let head_quatersInput = document.getElementById("head_quatersInput").value;
+        let websiteInput = document.getElementById("websiteInput").value;
+        let establishedInput = document.getElementById("establishedInput").value;
+        fetch("https://httpbin.org/post", {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                body: JSON.stringify({
+                    name: nameInput,
+                    country: countryInput,
+                    logo: logoInput,
+                    slogan: sloganInput,
+                    head_quaters: head_quatersInput,
+                    website: websiteInput,
+                    established: establishedInput
+                })
+            })
+            .then(response => {
+                console.log("Response status: ", response.status);
+                return response.json()
+                // if (response.ok) return response.json()
+                // return Promise.reject(response)
+            })
+            .then(data =>
+                //outputResult() 
+                console.log(data))
+
+            .catch(error => console.log("ERROR"))
+    }
+</script>
+
+</html>
+
+<!-- {message: 'error in saving data'}  
+{message: "there is an airline registered under same id you've entered"} -->

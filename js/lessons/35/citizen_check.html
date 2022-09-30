@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="street" placeholder="street" style="border: 1px solid black;">
+    <input type="text" id="country" placeholder="country"  style="border: 1px solid black;">
+    <input type="text" id="city" placeholder="city"  style="border: 1px solid black;">
+    <input type="number" id="numHouse"  style="border: 1px solid black;">
+    <p id="pCheck"></p>
+    <button onclick="check()">Check</button>
+
+
+
+</body>
+<script>
+    function func(arr) {
+        document.getElementById('pCheck').innerHTML = "Please check the value";
+        let incorrect = "red";
+        let correct = "black";
+        document.getElementById('street').style.borderColor = arr[0] ? correct : incorrect;
+        document.getElementById('country').style.borderColor = arr[1] ? correct : incorrect;
+        document.getElementById('city').style.borderColor = arr[2] ? correct : incorrect;
+        document.getElementById('numHouse').style.borderColor = arr[3] ? correct : incorrect;
+    }
+
+    function check() {
+        if (document.getElementById("street").value == 0 || isFinite(document.getElementById("street").value) ||
+            document.getElementById("street").value.length >= 20) {
+            let arr = [false, true, true, true]
+            func(arr);
+            return;
+        }
+
+        if (document.getElementById("country").value == 0 || isFinite(document.getElementById("country").value) ||
+            document.getElementById("country").value.length >= 20) {
+            let arr = [true, false, true, true]
+            func(arr);
+            return;
+        }
+
+        if (document.getElementById("city").value == 0 ||
+            isFinite(document.getElementById("city").value) ||
+            document.getElementById("city").value.length >= 20) {
+            let arr = [true, true, false, true]
+            func(arr);
+            return;
+        }
+    }
+</script>
+
+</html>
