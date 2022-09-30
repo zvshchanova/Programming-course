@@ -43,9 +43,61 @@
 
     <button onclick="add()">Add new airLine 400</button>
     <button onclick="funcGet()">Get airline id</button>
+    <button onclick="funcDeletePass()">Delete passager</button>
     <p id="message"></p>
 </body>
 <script>
+    async function funcDeletePass() {
+        let idPass = "633199c2eb4e4ba9323e8ffe";
+        let url = "https://api.instantwebtools.net/v1/passenger/" + idPass;
+        // fetch(url,{ method:"GET"})
+        //     .then(res => res.json() )
+        //     .then(res=>console.log(res))
+
+        fetch(url)
+        .then(response => {
+            if (response.ok) {console.log(response)}
+            else {console.log("HTTP request unsuccessful")}
+            return response
+
+        })     
+            .then(response =>
+                response.json()
+
+                // {
+                //     if (response.status == "200")
+                //         response.json()
+                //     return "unsuccess"
+                // }
+            )
+            .then(response => {
+                //console.log(response.statusText + " "+ response.status)
+                console.log(response)
+            })
+
+            .then(response => {
+                fetch(url, {
+                        method: "DELETE",
+                        'Content-type': 'application/json; charset=UTF-8',
+                    }).then(response => response.json())
+                    .then((json) => {
+                        console.log(json) //"message": "Passenger data deleted successfully."
+                        fetch(url)
+                            .then(response => {
+                                if (response.ok) return
+                                //response.json()
+                            })
+                            .then(response => console.log(response))
+                    })
+            })
+
+    }
+
+    function outputResult() {
+        const message = "Airline was added";
+        let idInput = document.getElementById("message");
+        idInput.innerHTML = message
+    }
     async function funcGet() {
         let idInput = document.getElementById("idInput").value;
         let url = "https://api.instantwebtools.net/v1/airlines/" + idInput;
@@ -55,14 +107,14 @@
         console.log(response.status); // 200 !!!
     }
     async function add() {
-        let idInput = document.getElementById("nameInput").value;
+        let nameInput = document.getElementById("nameInput").value;
         let countryInput = document.getElementById("countryInput").value;
         let logoInput = document.getElementById("logoInput").value;
         let sloganInput = document.getElementById("sloganInput").value;
         let head_quatersInput = document.getElementById("head_quatersInput").value;
         let websiteInput = document.getElementById("websiteInput").value;
         let establishedInput = document.getElementById("establishedInput").value;
-        fetch("https://api.instantwebtools.net/v1/airlines", {
+        fetch("https://httpbin.org/post", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -78,21 +130,17 @@
                 })
             })
             .then(response => {
-                 console.log("Response status: ", response.status);
-                 return response.json()
+                console.log("Response status: ", response.status);
+                return response.json()
                 // if (response.ok) return response.json()
                 // return Promise.reject(response)
             })
             .then(data =>
+                //outputResult() 
                 console.log(data))
+
             .catch(error => console.log("ERROR"))
     }
-
-    // function outputResult(){
-    //     const message = "Airline was added";
-    //     let idInput = document.getElementById("message");
-    //     idInput.innerHTML = message
-    // }
 </script>
 
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function handleErrors(response) {
+            console.log(response);
+            if (!response.ok) {
+                if (response.status == 404) {
+                    throw Error("User not found")
+                } else if (response.status == 403) {
+
+                    throw Error("Forbidden for you, my friend! ")
+                }
+                throw Error(response.statusText);
+            }
+            console.log("asdgasdgkajdb")
+            return response;
+        }
+        fetch("http://httpstat.us/")
+            .then(handleErrors)
+            .then(response => console.log("Ok"))
+                .catch(error => console.log(error))
+    </script>
+</body>
+
+</html>

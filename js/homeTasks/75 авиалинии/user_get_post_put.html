@@ -16,14 +16,17 @@
 </body>
 <script>
     async function funcGet() {
-        let response = await fetch("https://reqres.in/api/users/3")
+        //        let response = await fetch("https://reqres.in/api/users/3")
+        fetch("https://reqres.in/api/users/3")
+            .then(res => res.json())
+            .then(res => console.log(res))
         // .then(res => {
         //         if (res.ok) return res.json()
         //         return Promise.reject(res)
         //     })
         ;
-        let userInfo = await response.json();
-        console.log(userInfo);
+        //  let userInfo = await response.json();
+        //  console.log(userInfo);
     }
 
     async function funcPost() {
