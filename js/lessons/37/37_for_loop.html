@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For</title>
+</head>
+
+<body>
+    <script>
+        //For loop
+        let text = "";
+        const cars = ["Volvo", "Kia", "Toyota"]
+        for (let i = 0; i < cars.length; i++) {
+            text += cars[i] + "<br>";
+        }
+        console.log(text)
+
+        // For in 
+        const person = {
+            fname: "John",
+            lname: "Doe",
+            age: 25
+        }
+        let text1 = "";
+        for (let x in person) {
+            text1 += person[x];
+        }
+        console.log(text1) // JohnDoe25
+
+        // For of loop
+        let text2 = "";
+        const cars1 = ["BMW", "Kia", "Mini"]
+        for (let x of cars1) {
+            text2 += x;
+        }
+        console.log(text2) // BMWKiaMini
+
+        const obj = {
+            France: "Paris",
+            England: "London"
+        }
+        for (const country of Object.keys(obj)) {
+            const capital = obj[country];
+            console.log(country, capital)
+        }
+        //or
+        for (const [country, capital] of Object.entries(obj)) {
+            console.log(country, capital)
+        }
+
+        // For of loop maps
+        const map = new Map;
+        map.set('Sweden', 'Stokholm');
+        map.set('Ukraine', 'Kiev');   
+
+        for (const capital of map.values()) {
+            console.log(capital)   // Stokholm  Kiev
+        }
+        for (const country of map.keys()){
+            const capital = map.get(country)
+            console.log("2",country, capital) // Sweden Stokholm  //  Ukraine Kiev   
+        }
+        for (const [country, capital] of map.entries()) {
+            console.log("3",country, capital)  // Sweden Stokholm  //  Ukraine Kiev   
+        }
+
+
+    </script>
+</body>
+
+</html>

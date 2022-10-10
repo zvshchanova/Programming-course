@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>Set
+</head>
+
+<body>
+    <input type="text" id="input">
+    <p id="result"></p>
+    <button onclick="setClick()">Set</button>
+    <button onclick="checkClick()">Check</button>
+    <button onclick="delClick()">Delete</button><br><br>
+    <button onclick="instorage()">Save in storage</button>
+    <button onclick="fromstorage()">Get from storage</button>
+    <button onclick="delstorage()">Clear storage</button>
+    <p id="storage"></p>
+    <script>
+        const setInput = new Set();
+        let res = document.getElementById("result");
+        let infoStor = document.getElementById("storage");
+
+        function result(mess) {
+            res.innerHTML += mess + "<br>";
+            document.getElementById('input').value = ''
+        }
+
+        function setClick() {
+            let inp = document.getElementById("input").value;
+            setInput.add(inp)
+            result(`${inp} was add in Set`)
+            infoStor.innerHTML = "";
+        }
+
+        function checkClick() {
+            let inp = document.getElementById("input").value;
+            let res = setInput.has(inp);
+            if (res) {
+                result(`${inp} is in Set`)
+            } else {
+                result(`${inp} is not in Set`)
+            }
+            infoStor.innerHTML = "";
+        }
+
+        function delClick() {
+            let inp = document.getElementById("input").value;
+            let res = setInput.delete(inp);
+            if (res) {
+                result(`${inp} has just been removed`)
+            } else {
+                result(`${inp} has not111 been removed`)
+            }
+            infoStor.innerHTML = "";
+        }
+
+        // function resultGet(mess) {
+        //     infoStor.innerHTML = mess + "<br>";
+        // }
+        const resultGet = (mess) => infoStor.innerHTML = mess + "<br>";
+
+        function instorage() {
+            const arr = [];
+            for (v of setInput.values()) {
+                arr.push(v)
+            }
+            console.log(arr)
+            localStorage.setItem('set', JSON.stringify(arr))
+            sessionStorage.setItem('set', JSON.stringify(arr))
+            resultGet(`Set was add or update in local and session storages`)
+        }
+
+        function fromstorage() {
+            const store1 = JSON.parse(localStorage.getItem('set'))
+            const store2 = JSON.parse(sessionStorage.getItem('set'))
+            resultGet(`Inform set from local storage: ${store1}. <br> 
+            Inform set from session storage: ${store2}.`)
+        }
+        function delstorage() {
+            if (localStorage.getItem('set') != null || sessionStorage.getItem('set') != null) {
+                localStorage.clear('set');
+                sessionStorage.clear('set')
+                resultGet(`Set has been removed from set storage.`)
+            } else {
+                resultGet(`Set from set storage was null.`)
+            }
+
+        }
+    </script>
+</body>
+
+</html>

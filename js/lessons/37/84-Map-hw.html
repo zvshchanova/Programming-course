@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+
+<body>
+
+    <script>
+        let colors = new Map(
+            [
+                ["red", "#FF0000"],
+                ["lime", "#00FF00"],
+                ["blue", "#0000FF"],
+                ["yellow", "#FFFF00"],
+            ]
+        )
+        colors.set("aqua", "	#00FFFF") // add key-value pair
+        console.log(colors.has("blue")) // check if key exists in map
+        console.log(colors.get("lime")) // #00FF00   get value 
+        console.log(colors.size)
+        colors.delete("blue") // to remove a key-value 
+        console.log(colors)
+        colors.clear(); //To remove all the key-value pairs 
+        console.log(colors) // Map(0)
+
+        // Convert a map to an array
+        let players = new Map();
+        players.set(77, "Luka Doncic").set(23, "Michael Jordan").set(34, "Shaquille O'Neal");
+        console.log(players)
+        // let players2 = new Map(
+        //     [
+        //         [77, "Luka Doncic"],
+        //         [23, "Michael Jordan"],
+        //         [34, "Shaquille O'Neal"],
+        //     ]
+        // )
+        let arr = [...players]
+        console.log(arr) //  (3) [Array(2), Array(2), Array(2)]
+        // or
+        //let arr1 = Array.from(players);
+        //console.log(arr1)
+
+        const obj = {}
+        players.forEach((value, key) => (obj[key] = value));
+        console.log(obj); // {23: 'Michael Jordan', 34: 'Shaquille O'Neal', 77: 'Luka Doncic'}
+
+        //Looping over a map with a for of .
+
+        let numMap = new Map([
+            [1, "one"],
+            [2, "two"],
+            [3, "three"],
+        ]);
+        console.log(numMap.keys()) // MapIterator {1, 2, 3}
+        for (k of numMap.keys()) {
+            console.log(k) //  1   2  3
+        }
+        for (v of numMap.values()) {
+            console.log(v) // one two three
+        }
+
+        // Looping over a map with a forEach
+        let numMap1 = new Map([
+        ["breakfast", "eggs"],
+        ["lunch", "fish"],
+        ["dinner", "an apple"],
+        ]);
+        numMap1.forEach((value, key, map) => {
+            console.log(`For ${key} we had ${value}`)  //For breakfast we had eggs.   For lunch we had fish.  For dinner we had an apple.
+        });
+    </script>
+</body>
+
+</html>
