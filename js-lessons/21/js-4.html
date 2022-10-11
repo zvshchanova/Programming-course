@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <p>Hello world!</p>
+    <p>Hello world!</p>
+    <p>Hello world!</p>
+
+    <h1 class="id1">My Heading 1</h1>
+    <h1 class="id1">My Heading 1</h1>
+    <h1 class="id1">My Heading 1</h1>
+
+    <button type="button" onclick="someChange()">
+        Click Me!</button>
+
+</body>
+<script>
+      let counter=0
+      let colors=["red","blue","green"]
+
+    function someChange() {
+    //   let elements= document.getElementsByClassName('id1');
+    //   for (i=0; elements.length; i++ ){
+    //     elements[i].style.color = 'red';
+    //     elements[i].innerHTML="Hello id!"; 
+    //   }
+
+      let pelements= document.getElementsByTagName('p')
+      for (i=0; pelements.length; i++ ){
+        pelements[i].style.color = colors[counter%3];
+        pelements[i].innerHTML="Hello class p!"; 
+      }
+    }
+     counter++
+</script>
+
+</html>
+</script>
+
+</html>

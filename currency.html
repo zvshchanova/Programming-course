@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency</title>
+</head>
+<body>
+    <div>
+        <p>1 USD  buy: <span id="usdBuy"></span> sale:<span id="usdSale"></span> <span id="usdBase_ccy"></span></p>
+        <p>1 EUR buy: <span id="eurBuy"></span> sale: <span id="eurSale"></span> <span id="eurBase_ccy"></span></p>
+        <p>BTC buy: <span id="btcBuy"></span> sale: <span id="btcSale"></span> <span id="btcBase_ccy"></span></p>
+    </div>
+<script>
+    async function getCurrency() {
+        const url ="https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5"
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          
+            let usd = data.find(x => x.ccy === "USD") 
+            document.getElementById("usdBuy").innerHTML = Number(usd.buy).toFixed(2);
+            document.getElementById("usdSale").innerHTML =  Number(usd.sale).toFixed(2);
+            document.getElementById("usdBase_ccy").innerHTML = usd.base_ccy;
+
+            let eur = data.find(x => x.ccy === "EUR")
+            document.getElementById("eurBuy").innerHTML = Number(eur.buy).toFixed(2);
+            document.getElementById("eurSale").innerHTML = Number(eur.sale).toFixed(2);
+            document.getElementById("eurBase_ccy").innerHTML = eur.base_ccy;
+
+            let btc = data.find(x => x.ccy === "BTC")
+              document.getElementById("btcBuy").innerHTML = Number(btc.buy).toFixed(2);
+            document.getElementById("btcSale").innerHTML = Number(btc.sale).toFixed(2);
+            document.getElementById("btcBase_ccy").innerHTML = btc.base_ccy;
+            
+        })
+        .catch(err => {"Error: ", console.log(err)        
+        })
+    }
+    getCurrency()
+
+</script>
+</body>
+</html>

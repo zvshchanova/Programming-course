@@ -1,0 +1,26 @@
+<script>
+    var number = [1, 2, 3, 4, 5]
+    // option 1
+    function print(reversed) {
+        if (reversed) {
+            console.log(number.reverse())
+        } else {
+            console.log(number)
+        }
+    }
+    // option 2
+    function print2(reversed) {
+        if (reversed) {
+            let output = "[";
+            for (i = number.length - 1; i >= 0; i--) {
+                output += number[i]+", ";
+            }
+            output += "]";
+            console.log(output)
+        } else {
+            console.log(number)
+        }
+    }
+    print2(true);
+    print(true);
+</script>

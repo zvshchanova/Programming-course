@@ -1,0 +1,33 @@
+<!-- Задание 63: Напишите HTML страницу с 3 заголовками (любой текст) и одной кнопкой. 
+    При нажатии на кнопку все заголовки меняют цвет, приобретают границу, а размер фона увеличивается. 
+    Особенный плюс, если размер фона будет увеличиваться постоянно при каждом на нажатии на кнопку.  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>63</title>
+</head>
+
+<body>
+    <h2 class="text">First</h2>
+    <h2 class="text">Second</h2>
+    <h2 class="text">Third</h2>
+    <button onclick="funcChange()">Change properties</button>
+</body>
+<script>
+    function funcChange() {
+        const collection = document.getElementsByClassName("text");
+        var lenClass = collection.length;
+        console.log(lenClass);
+        for (let i = 0; i < lenClass; i++) {
+
+            collection[i].style.color = 'red'
+            collection[i].style.border = '2px solid blue'
+        }
+    }
+</script>
+
+</html>

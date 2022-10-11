@@ -1,0 +1,51 @@
+<!-- Задание 77: 
+Потренируемся с новыми знаниями про параметры:
+Создадим маленький генератор мемов. На этом API https://cataas.com/#/ , 
+есть подходящий нам запрос: /cat/says/:text?size=:size&color=:color   (последний в списке Basic),  :text  
+это то что будет написано на картинке, :size - размер текста,  :color- цвет текста. 
+Ваша задача, создать HTML страничку, на которой пользователь может ввести эти параметры, 
+и получить в ответ сгенерированный мем. Обратите внимание что чтобы получить в ответ данные, 
+к параметрам необходимо добавить &json=true, например:
+https://cataas.com/cat/says/hello?size=50&color=red&json=true
+Подсказка 1: В ответе есть данные url. Это место где ледит картинка, и откуда мы ее всегда можем достать. 
+url  присылается например вот так: /cat/5ab107b488b001000f9168f8/says/hello?color=red&size=50   
+и чтобы он работал необходимо добавить к нему https://cataas.com/,  например ссылка на картинку сгенерированную мной :
+https://cataas.com/cat/5ab107b488b001000f9168f8/says/hello?color=red&size=50  
+Подсказка 2: Тип запроса в этом задании GET -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get_cat</title>
+</head>
+
+<body>
+    <input id="varColor" type="text" placeholder="color">
+    <input id="varSize" type="number" placeholder="size">
+    <button onclick="func()">Get cat picture with your parameters</button>
+    <img src="" alt="">
+
+</body>
+<script>
+    function getImg(url) {
+        document.querySelector("img").src = url;
+    }
+    async function func() {
+        let varSize = document.getElementById("varSize").value;
+        let varColor = document.getElementById("varColor").value;
+        let url1 = "https://cataas.com/cat/";
+        let url2 = "says/hello?size="+varSize+"&color="+varColor;
+
+        fetch(url1 + url2 + "&json=true")
+            .then(res => res.json())
+            .then(res => {
+                console.log(res, res.id)
+                let resUrl = url1+res.id+"/"+url2;
+                getImg(resUrl)
+            })
+    }
+</script>
+</html>

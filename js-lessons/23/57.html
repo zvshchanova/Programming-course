@@ -1,0 +1,11 @@
+<script>
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    nowWeekday();
+
+    function nowWeekday() {
+        let now = new Date();
+        weekDay = now.getDay();
+        let dayOfTheWeek = weekdays[now.getDay()];
+        console.log("Now " + dayOfTheWeek)
+    }
+</script>

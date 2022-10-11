@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm</title>
+    <style>
+        .counter {
+            height: 50px;
+            width: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="counter" id="counter">0</div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">reset</button>
+    <p id="varTime"></p>
+    <button id="stopBut" onclick="varStop()">Stop timer</button><br><br>
+    <button onclick="setTimeout(myConfirm,3000)">Confirm function after 3c waiting</button>
+    <p id="resBut"></p>
+    <script>
+        const counterEl = document.querySelector("#counter");
+        let counter = 0;
+        let timerID;
+        const btnStart = document.querySelector("#start");
+
+        btnStart.onclick = function start() {
+            timerID = setInterval(function () {
+                counter++;
+                counterEl.innerHTML = counter;
+            }, 1000)
+        };
+
+        const btnStop = document.querySelector("#stop");
+        btnStop.onclick = function () {
+            clearInterval(timerID)
+        }
+
+        const btnReset = document.querySelector("#reset");
+        btnReset.onclick = function () {
+            counter = 0;
+            counterEl.innerHTML = counter;
+            clearInterval(timerID)
+        }
+
+
+        // let varInterval = setInterval(funcTimer, 1000);
+        // function funcTimer() {
+        //     const tm = new Date();
+        //     document.getElementById("varTime").innerHTML= tm.toLocaleTimeString();
+        // }
+        // function varStop() {
+        //     let textBut = document.getElementById("stopBut").innerText;
+        //     if ( textBut == "Stop timer"){
+        //         clearInterval(varInterval);
+        //         textBut = "Start timer";
+        //         console.log ('stop: ', textBut)
+        //     } else {
+        //         let varInterval = setInterval(funcTimer, 1000);
+        //         textBut = "Stop timer";
+        //         console.log ('start: ', textBut)
+        //     }
+        //     document.getElementById("stopBut").innerText = textBut;
+        //     console.log (document.getElementById("stopBut").innerText)
+        // };
+        // function myConfirm() {
+        //     let message;
+        //     if (confirm("Press a button!")) {
+        //         message = "You press OK."
+        //     } else {
+        //         message = "You press Cancel."
+        //     }
+        //     document.getElementById("resBut").innerHTML = message;
+        // }
+    </script>
+</body>
+
+</html>
