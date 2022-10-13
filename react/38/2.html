@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>reactjs Search Results</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js "></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js "></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js "></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Link(props) {
+        return  ( 
+          <div>
+          <h1>{props.title}</h1>
+        
+          <div>
+        <a href={props.url}>{props.shorturl}</a>
+        </div>
+          </div>
+        );
+      }
+      function App() {
+        return (
+          <section>
+            <Link
+            title="Hello, world"
+            url="https://www.google.com/"
+            shorturl = "Google"
+            />
+            <Link
+            title="New course React"
+            url="https://reactjs.org/"
+            shorturl = "React"
+            />   
+          </section>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
