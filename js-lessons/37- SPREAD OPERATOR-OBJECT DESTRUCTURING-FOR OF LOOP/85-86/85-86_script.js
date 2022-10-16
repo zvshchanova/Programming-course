@@ -54,6 +54,7 @@ document.querySelector('#instorage').onclick = () => {
     console.log(arr)
     localStorage.setItem(keyLocalstore, JSON.stringify(arr))
     sessionStorage.setItem(keyLocalstore, JSON.stringify(arr))
+    document.cookie = "myname=Zhanna; max-age=604800; path=/ "
     // check result from  export function checkLs()
     if (!checkLs(keyLocalstore))
         resultGet(showMessage("Problem"));

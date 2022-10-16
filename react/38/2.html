@@ -2,25 +2,23 @@
 <html>
 
 <head>
-    <title>reactjs Search Results</title>
-
-    <script src="https://unpkg.com/react@17/umd/react.development.js "></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js "></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js "></script>
+  <title>reactjs Search Results</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js "></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js "></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js "></script>
 </head>
 
 <body>
-    <div id="root"></div>
+  <div id="root"></div>
 
-    <script type="text/babel">
-        function Link(props) {
+  <script type="text/babel">
+    function Link(props) {
         return  ( 
           <div>
-          <h1>{props.title}</h1>
-        
+          <h1>{props.title}</h1>        
           <div>
-        <a href={props.url}>{props.shorturl}</a>
-        </div>
+            <a href={props.url}>{props.shorturl}</a>
+          </div>
           </div>
         );
       }

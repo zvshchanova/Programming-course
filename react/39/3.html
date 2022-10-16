@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>reactjs Search Results</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js "></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js "></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js "></script>
+  <script src="data.js"></script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+function Link(props) {
+        return (
+          <div>
+            <h3>{props.title}</h3>
+            <a href={props.url}>{props.shortUrl}</a>
+            <div>{props.excerpt}</div>            
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <section>
+            {linkData.map(function(link) {
+              return (
+                <Link
+                  key={link.url}
+                  title={link.title}
+                  url={link.url}
+                  shortUrl={link.shortUrl}
+                  excerpt={link.excerpt}
+                />
+              );
+            })}
+          </section>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+</body>
+
+
+
+
+<!-- {constData.map(function(someData) {
+return (
+<Link key={someData.url} title={someData.title} url={someData.url} shortUrl={someData.shortUrl}
+  excerpt={someData.excerpt} />
+);
+})}
+
+
+{constData.map(function(someData) {
+return (
+<Link key={someData.url} title={someData.title} url={someData.url} shortUrl={someData.shortUrl}
+  excerpt={someData.excerpt} />
+);
+})} -->
+
+
+</html>
