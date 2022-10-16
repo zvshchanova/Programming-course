@@ -1,7 +1,4 @@
-import {
-    checkLs,
-    showMessage
-} from './85-86_cookie.js';
+import {checkLs, showMessage} from './85-86_cookie.js';
 
 const setInput = new Set();
 const keyLocalstore = 'set'
@@ -15,9 +12,13 @@ function result(mess) {
 
 document.querySelector('#setClick').onclick = () => {
     let inp = document.getElementById("input").value;
+    if (inp !=""){
     setInput.add(inp);
     result(`${inp} was add in Set`);
     infoStor.innerHTML = "";
+} else {
+    infoStor.innerHTML = "Please input something.";
+}
 }
 
 document.querySelector('#checkClick').onclick = () => {
@@ -51,14 +52,21 @@ document.querySelector('#instorage').onclick = () => {
     for (let v of setInput.values()) {
         arr.push(v)
     }
-    console.log(arr)
-    localStorage.setItem(keyLocalstore, JSON.stringify(arr))
-    sessionStorage.setItem(keyLocalstore, JSON.stringify(arr))
+
+    let valArr = JSON.stringify(arr);
+    console.log(arr.length);
+    console.log(valArr);
+    localStorage.setItem(keyLocalstore, valArr)
+    sessionStorage.setItem(keyLocalstore, valArr)
     document.cookie = "myname=Zhanna; max-age=604800; path=/ "
-    // check result from  export function checkLs()
-    if (!checkLs(keyLocalstore))
+
+    if (arr.length==0) {
+        resultGet(showMessage("Please input something and click on Set"));
+    } else {
+    if (!checkLs(keyLocalstore) )
         resultGet(showMessage("Problem"));
     resultGet(`Set was add or update in local and session storages`);
+}
 }
 // get info from localstorage
 document.querySelector('#fromstorage').onclick = () => {

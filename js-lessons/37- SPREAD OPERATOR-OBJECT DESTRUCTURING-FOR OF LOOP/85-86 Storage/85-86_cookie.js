@@ -1,3 +1,4 @@
+
 export const checkLs = (set) => {
     if (localStorage.getItem(set)) return true;
     return false;
